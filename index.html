@@ -11,24 +11,41 @@
 </head>
 <body>
 
-  <main>
-    <div>
-      <div>
-        Day
-        DD
+  <main id="age-calculator">
+    <div class="date-inputs">
+      <div class="date-input date-input--day">
+        <span class="date-input__label">Day</span>
+        <input class="date-input__field" placeholder="DD">
       </div>
-      <div>
-        Month
-        MM
+      <div class="date-input date-input--month">
+        <span class="date-input__label">Month</span>
+        <input class="date-input__field" placeholder="MM">
       </div>
-      <div>
-        Year
-        YYYY
+      <div class="date-input date-input--year">
+        <span class="date-input__label">Year</span>
+        <input class="date-input__field" placeholder="YYYY">
       </div>
     </div>
-    -- years
-    -- months
-    -- days
+
+    <div class="calculate-divider">
+      <hr class="calculate-divider__line">
+      <img src="assets/images/icon-arrow.svg" alt="Arrow icon">
+    </div>
+
+    <div class="results">
+      <div class="results__item results__items--years">
+        <span class="results__value">--</span>
+        <span class="results__label">years</span>
+      </div>
+      <div class="results__item results__items--months">
+        <span class="results__value">--</span>
+        <span class="results__label">months</span>
+      </div>
+      <div class="results__item results__items--days">
+        <span class="results__value">--</span>
+        <span class="results__label">days</span>
+      </div>
+    </div>
   </main>
 
 </body>
