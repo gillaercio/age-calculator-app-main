@@ -36,6 +36,7 @@ html {
 
 :root {
   --Purple-500: hsl(259, 100%, 65%);
+  --Purple-600: hsl(259, 50%, 54%);
   --Red-400: hsl(0, 100%, 67%);
 
   --White: hsl(0, 100%, 100%);
@@ -46,7 +47,7 @@ html {
 
   --poppins: 'Poppins', sans-serif;
   --text-sm: italic 1.3rem/120% var(--poppins);
-  --text: bold 1.4rem/120% var(--poppins);
+  --text: 1.2rem/120% var(--poppins);
   --text-ft: bold 1.6rem/120% var(--poppins);
-  --text-lg: bold italic 3rem/120% var(--poppins);
+  --text-lg: bold italic 4rem/120% var(--poppins);
 }
