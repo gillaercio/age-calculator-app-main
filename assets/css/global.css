@@ -28,7 +28,7 @@ html {
 
 @font-face {
   font-family: "Poppins";
-  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  src: url('../fonts/Poppins-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -46,7 +46,7 @@ html {
   --Black: hsl(0, 0%, 0%);
 
   --poppins: 'Poppins', sans-serif;
-  --text-sm: italic 1.3rem/120% var(--poppins);
+  --text-sm: italic 1.1rem/120% var(--poppins);
   --text: 1.2rem/120% var(--poppins);
   --text-ft: bold 1.6rem/120% var(--poppins);
   --text-lg: bold italic 4rem/120% var(--poppins);

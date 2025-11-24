@@ -1,7 +1,37 @@
-function calculateAge() {
-  const dayInput = Number(document.querySelector('.date-input--day .date-input__field').value);
-  const monthInput = Number(document.querySelector('.date-input--month .date-input__field').value);
-  const yearInput = Number(document.querySelector('.date-input--year .date-input__field').value);
+function calculateAge(event) {
+  event.preventDefault()
+
+  const dayField = document.querySelector('.date-input--day .date-input__field');
+  const monthField = document.querySelector('.date-input--month .date-input__field');
+  const yearField = document.querySelector('.date-input--year .date-input__field');
+  
+  const inputs = [dayField, monthField, yearField];
+  const errorMessages = document.querySelectorAll('.error-message');
+  
+  let hasError = false;
+  
+  inputs.forEach((input, index) => {
+    const message = errorMessages[index];
+    const dataLabel = document.querySelectorAll('.date-input__label');
+  
+    if(input.value.trim() === "") {
+      message.textContent = "This field is required";
+      message.style.display = "block";
+      
+      input.classList.add("input-error");
+    } else {
+      message.textContent = "";
+      message.style.display = "none";
+
+      input.classList.remove("input-error");
+    }
+  });
+
+  if (hasError) return;
+
+  const dayInput = Number(dayField.value);
+  const monthInput = Number(monthField.value);
+  const yearInput = Number(yearField.value);
   
   const dayResult = document.querySelector('.results__items--days .results__value');
   const monthResult = document.querySelector('.results__items--months .results__value');

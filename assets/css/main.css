@@ -24,13 +24,16 @@ body {
 
 .date-inputs {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .date-input {
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  align-items: space-evenly;
+  justify-content: space-evenly;
+  /* border: 1px solid red; */
 }
 
 .date-input__label {
@@ -41,7 +44,7 @@ body {
 }
 
 .date-input__field {
-  width: 70px;
+  width: 80px;
   padding: 1rem;
   font: var(--text-ft);
   color: var(--Black);
@@ -50,7 +53,30 @@ body {
 }
 
 .date-input__field::placeholder {
-  color: var(--Black);
+  color: var(--Grey-500);
+}
+
+.date-input__field:hover,
+.date-input__field:focus-visible {
+  border-color: var(--Purple-500);
+  outline: 1px solid var(--Purple-500);
+}
+
+.error-message {
+  display: none;
+  margin-top: 0.5rem;
+  font: var(--text-sm);
+  color: var(--Red-400);
+}
+
+input.input-error {
+  border: 1px solid var(--Red-400);
+}
+
+input.input-error:focus {
+  border: 1px solid var(--Red-400);
+  box-shadow: none;
+  outline: none;
 }
 
 .calculate-divider {
@@ -122,13 +148,12 @@ body {
     width: 140px;
     padding: 2rem;
     border-radius: 0.7rem;
-    font-size: clamp(1.6rem, 2vw, 2rem);
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
     cursor: pointer;
   }
 
-  .date-input__field:focus-visible {
-    border-color: var(--Purple-500);
-    outline: 1px solid var(--Purple-500);
+  .error-message {
+    font-size: clamp(1.1rem, 1.3vw, 1.4rem)
   }
 
   .calculate-divider {
