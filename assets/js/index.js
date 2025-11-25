@@ -12,18 +12,23 @@ function calculateAge(event) {
   
   inputs.forEach((input, index) => {
     const message = errorMessages[index];
-    const dataLabel = document.querySelectorAll('.date-input__label');
+    const label = input.parentElement.querySelector('.date-input__label');
   
     if(input.value.trim() === "") {
       message.textContent = "This field is required";
-      message.style.display = "block";
+      // message.style.display = "block";
+      message.classList.add("visible");
       
       input.classList.add("input-error");
+      label.classList.add("label-error");
+      hasError = true;
     } else {
       message.textContent = "";
-      message.style.display = "none";
+      // message.style.display = "none";
+      message.classList.remove("visible");
 
       input.classList.remove("input-error");
+      label.classList.remove("label-error");
     }
   });
 

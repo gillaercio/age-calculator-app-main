@@ -62,11 +62,21 @@ body {
   outline: 1px solid var(--Purple-500);
 }
 
+.label-error {
+  color: var(--Red-400);
+}
+
 .error-message {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
   margin-top: 0.5rem;
   font: var(--text-sm);
   color: var(--Red-400);
+  min-height: 1.6rem;
+}
+
+.error-message.visible {
+  visibility: visible;
 }
 
 input.input-error {
