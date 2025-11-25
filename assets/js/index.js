@@ -6,48 +6,122 @@ function calculateAge(event) {
   const yearField = document.querySelector('.date-input--year .date-input__field');
   
   const inputs = [dayField, monthField, yearField];
+  const labels = document.querySelectorAll('.date-input__label');
   const errorMessages = document.querySelectorAll('.error-message');
   
   let hasError = false;
   
   inputs.forEach((input, index) => {
-    const message = errorMessages[index];
-    const label = input.parentElement.querySelector('.date-input__label');
+    // const message = errorMessages[index];
+    // const label = input.parentElement.querySelector('.date-input__label');
   
-    if(input.value.trim() === "") {
-      message.textContent = "This field is required";
-      // message.style.display = "block";
-      message.classList.add("visible");
+    // if(input.value.trim() === "") {
+    //   message.textContent = "This field is required";
+    //   message.classList.add("visible");
       
-      input.classList.add("input-error");
-      label.classList.add("label-error");
-      hasError = true;
-    } else {
-      message.textContent = "";
-      // message.style.display = "none";
-      message.classList.remove("visible");
+    //   input.classList.add("input-error");
+    //   label.classList.add("label-error");
+    //   hasError = true;
+    // } else {
+    //   message.textContent = "";
+    //   message.classList.remove("visible");
 
+    //   input.classList.remove("input-error");
+    //   label.classList.remove("label-error");
+    // }
       input.classList.remove("input-error");
-      label.classList.remove("label-error");
+      labels[index].classList.remove("label-error");
+      errorMessages[index].textContent = "";
+      errorMessages[index].classList.remove("visible");
+  });
+
+  inputs.forEach((input, index) => {
+    if(input.value.trim() === "") {
+      errorMessages[index].textContent = "This field is required";
+      errorMessages[index].classList.add("visible");
+      input.classList.add("input-error");
+      labels[index].classList.add("label-error");
+      hasError = true;
     }
   });
 
   if (hasError) return;
 
-  const dayInput = Number(dayField.value);
-  const monthInput = Number(monthField.value);
-  const yearInput = Number(yearField.value);
+  // const dayInput = Number(dayField.value);
+  // const monthInput = Number(monthField.value);
+  // const yearInput = Number(yearField.value);
+  const day = Number(dayField.value);
+  const month = Number(monthField.value);
+  const year = Number(yearField.value);
+
+  const currentYear = new Date().getFullYear();
+
+  if (month < 1 || month > 12) {
+    errorMessages[1].textContent = "Must be a valid month";
+    errorMessages[1].classList.add("visible");
+    monthField.classList.add("input-error");
+    labels[1].classList.add("label-error");
+    hasError = true;
+  }
+
+  if (day < 1 || day > 31) {
+    errorMessages[0].textContent = "Must be a valid day";
+    errorMessages[0].classList.add("visible");
+    dayField.classList.add("input-error");
+    labels[0].classList.add("label-error");
+    hasError = true;
+  }
+
+  if (year > currentYear) {
+    errorMessages[2].textContent = "Must be in the past";
+    errorMessages[2].classList.add("visible");
+    yearField.classList.add("input-error");
+    labels[2].classList.add("label-error");
+    hasError = true;
+  }
+
+  if (hasError) return;
   
-  const dayResult = document.querySelector('.results__items--days .results__value');
-  const monthResult = document.querySelector('.results__items--months .results__value');
-  const yearResult = document.querySelector('.results__items--years .results__value');
+  // const dayResult = document.querySelector('.results__items--days .results__value');
+  // const monthResult = document.querySelector('.results__items--months .results__value');
+  // const yearResult = document.querySelector('.results__items--years .results__value');
 
+  // const today = new Date();
+  // const birth = new Date(yearInput, monthInput - 1, dayInput);
+  const testDate = new Date(year, month - 1, day);
+  
+  if (
+    testDate.getFullYear() !== year ||
+    testDate.getMonth() !== month - 1 ||
+    testDate.getDate() !== day
+  ) {
+    errorMessages[0].textContent = "Must be a valid date";
+    errorMessages[0].classList.add("visible");
+    
+    inputs.forEach((input, index) => {
+      input.classList.add("input-error");
+      labels[index].classList.add("label-error");
+    });
+    return;
+  }
+  
   const today = new Date();
-  const birth = new Date(yearInput, monthInput - 1, dayInput);
 
-  let years = today.getFullYear() - birth.getFullYear();
-  let months = today.getMonth() - birth.getMonth();
-  let days = today.getDate() - birth.getDate();
+  if (testDate > today) {
+    errorMessages[2].textContent = "Must be in the past";
+    errorMessages[2].classList.add("visible");
+    yearField.classList.add("input-error");
+    labels[2].classList.add("label-error");
+    return;
+  }
+  
+
+  // let years = today.getFullYear() - birth.getFullYear();
+  // let months = today.getMonth() - birth.getMonth();
+  // let days = today.getDate() - birth.getDate();
+  let years = today.getFullYear() - year;
+  let months = today.getMonth() - (month - 1);
+  let days = today.getDate() - day;
  
   if (days < 0) {
     months--;
@@ -60,7 +134,10 @@ function calculateAge(event) {
     months += 12;
   }
 
-  yearResult.textContent = years;
-  monthResult.textContent = months;
-  dayResult.textContent = days;
+  // yearResult.textContent = years;
+  // monthResult.textContent = months;
+  // dayResult.textContent = days;
+  document.querySelector('.results__items--years .results__value').textContent = years;
+  document.querySelector('.results__items--months .results__value').textContent = months;
+  document.querySelector('.results__items--days .results__value').textContent = days;
 }
