@@ -1,3 +1,7 @@
+document
+  .querySelector(".calculate-divider__button")
+  .addEventListener("click", calculateAge);
+
 function calculateAge(event) {
   event.preventDefault()
 
@@ -12,23 +16,6 @@ function calculateAge(event) {
   let hasError = false;
   
   inputs.forEach((input, index) => {
-    // const message = errorMessages[index];
-    // const label = input.parentElement.querySelector('.date-input__label');
-  
-    // if(input.value.trim() === "") {
-    //   message.textContent = "This field is required";
-    //   message.classList.add("visible");
-      
-    //   input.classList.add("input-error");
-    //   label.classList.add("label-error");
-    //   hasError = true;
-    // } else {
-    //   message.textContent = "";
-    //   message.classList.remove("visible");
-
-    //   input.classList.remove("input-error");
-    //   label.classList.remove("label-error");
-    // }
       input.classList.remove("input-error");
       labels[index].classList.remove("label-error");
       errorMessages[index].textContent = "";
@@ -47,9 +34,6 @@ function calculateAge(event) {
 
   if (hasError) return;
 
-  // const dayInput = Number(dayField.value);
-  // const monthInput = Number(monthField.value);
-  // const yearInput = Number(yearField.value);
   const day = Number(dayField.value);
   const month = Number(monthField.value);
   const year = Number(yearField.value);
@@ -81,13 +65,7 @@ function calculateAge(event) {
   }
 
   if (hasError) return;
-  
-  // const dayResult = document.querySelector('.results__items--days .results__value');
-  // const monthResult = document.querySelector('.results__items--months .results__value');
-  // const yearResult = document.querySelector('.results__items--years .results__value');
 
-  // const today = new Date();
-  // const birth = new Date(yearInput, monthInput - 1, dayInput);
   const testDate = new Date(year, month - 1, day);
   
   if (
@@ -114,11 +92,7 @@ function calculateAge(event) {
     labels[2].classList.add("label-error");
     return;
   }
-  
 
-  // let years = today.getFullYear() - birth.getFullYear();
-  // let months = today.getMonth() - birth.getMonth();
-  // let days = today.getDate() - birth.getDate();
   let years = today.getFullYear() - year;
   let months = today.getMonth() - (month - 1);
   let days = today.getDate() - day;
@@ -134,9 +108,6 @@ function calculateAge(event) {
     months += 12;
   }
 
-  // yearResult.textContent = years;
-  // monthResult.textContent = months;
-  // dayResult.textContent = days;
   document.querySelector('.results__items--years .results__value').textContent = years;
   document.querySelector('.results__items--months .results__value').textContent = months;
   document.querySelector('.results__items--days .results__value').textContent = days;

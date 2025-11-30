@@ -7,6 +7,7 @@ body {
 
 #age-calculator {
   display: grid;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
   max-width: 375px;
@@ -27,8 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  justify-content: space-evenly;
-  align-items: flex-start;
   flex: 1;
 }
 
@@ -40,7 +39,8 @@ body {
 }
 
 .date-input__field {
-  width: 80px;
+  max-width: 120px;
+  width: 100%;
   padding: 1rem;
   font: var(--text-ft);
   color: var(--Black);
@@ -63,19 +63,20 @@ body {
 }
 
 .error-message {
-  visibility: hidden;
+  display: flex;
+  /* visibility: hidden; */
   margin-top: 0.5rem;
   font: var(--text-sm);
   color: var(--Red-400);
   min-height: 1.6rem;
-  /* max-width: 8rem; */
-  max-width: 95%;
-  align-items: flex-start;
-  /* border: 1px solid red; */
+  max-width: 8rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .error-message.visible {
-  visibility: visible;
+  /* visibility: visible; */
+  opacity: 1;
 }
 
 .input-error,
@@ -92,7 +93,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-block: 5rem;
+  margin-top: 5rem;
 }
 
 .calculate-divider__line {
@@ -123,14 +124,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: -5rem;
   font: var(--text-lg);
 }
-
-/* .results-item {
-  display: flex;
-  align-items: center;
-} */
 
 .results__value {
   color: var(--Purple-500);
@@ -156,11 +151,11 @@ body {
   }
 
   .error-message {
-    font-size: clamp(1.1rem, 1.3vw, 1.4rem)
+    max-width: 100%;
+    font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   }
 
   .calculate-divider {
-    /* display: flex; */
     align-items: center;
   }
 

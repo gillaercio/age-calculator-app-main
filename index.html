@@ -13,46 +13,46 @@
 </head>
 <body>
 
-  <main id="age-calculator">
-    <div class="date-inputs">
-      <div class="date-input date-input--day">
-        <span class="date-input__label">Day</span>
-        <input type="number" class="date-input__field" placeholder="DD">
-        <small class="error-message"></small>
+  <main>
+    <form id="age-calculator" novalidate>
+      <div class="date-inputs">
+        <div class="date-input date-input--day">
+          <label for="day" class="date-input__label">Day</label>
+          <input id="day" type="number" class="date-input__field" placeholder="DD">
+          <small class="error-message" aria-live="polite"></small>
+        </div>
+        <div class="date-input date-input--month">
+          <label for="month" class="date-input__label">Month</label>
+          <input id="month" type="number" class="date-input__field" placeholder="MM">
+          <small class="error-message" aria-live="polite"></small>
+        </div>
+        <div class="date-input date-input--year">
+          <label for="year" class="date-input__label">Year</label>
+          <input id="year" type="number" class="date-input__field" placeholder="YYYY">
+          <small class="error-message" aria-live="polite"></small>
+        </div>
       </div>
-      <div class="date-input date-input--month">
-        <span class="date-input__label">Month</span>
-        <input type="number" class="date-input__field" placeholder="MM">
-        <small class="error-message"></small>
+      <div class="calculate-divider">
+        <hr class="calculate-divider__line">
+        <button type="submit" class="calculate-divider__button" id="calculate-button">
+          <img src="assets/images/icon-arrow.svg" alt="Arrow icon">
+        </button>
       </div>
-      <div class="date-input date-input--year">
-        <span class="date-input__label">Year</span>
-        <input type="number" class="date-input__field" placeholder="YYYY">
-        <small class="error-message"></small>
+      <div class="results">
+        <div class="results__item results__items--years">
+          <span class="results__value">--</span>
+          <span class="results__label">years</span>
+        </div>
+        <div class="results__item results__items--months">
+          <span class="results__value">--</span>
+          <span class="results__label">months</span>
+        </div>
+        <div class="results__item results__items--days">
+          <span class="results__value">--</span>
+          <span class="results__label">days</span>
+        </div>
       </div>
-    </div>
-
-    <div class="calculate-divider">
-      <hr class="calculate-divider__line">
-      <button class="calculate-divider__button" onclick="calculateAge(event)">
-        <img src="assets/images/icon-arrow.svg" alt="Arrow icon">
-      </button>
-    </div>
-
-    <div class="results">
-      <div class="results__item results__items--years">
-        <span class="results__value">--</span>
-        <span class="results__label">years</span>
-      </div>
-      <div class="results__item results__items--months">
-        <span class="results__value">--</span>
-        <span class="results__label">months</span>
-      </div>
-      <div class="results__item results__items--days">
-        <span class="results__value">--</span>
-        <span class="results__label">days</span>
-      </div>
-    </div>
+    </form>
   </main>
 
   <script src="assets/js/index.js" defer></script>
