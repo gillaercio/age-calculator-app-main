@@ -34,6 +34,9 @@ function calculateAge(event) {
 
   if (hasError) return;
 
+  dayField.value = dayField.value.padStart(2, "0");
+  monthField.value = monthField.value.padStart(2, "0");
+
   const day = Number(dayField.value);
   const month = Number(monthField.value);
   const year = Number(yearField.value);

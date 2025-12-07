@@ -1,102 +1,134 @@
-# Frontend Mentor - Age calculator app
+# age-calculator-app
 
-![Design preview for the Age calculator app coding challenge](preview.jpg)
+This is a solution to the [age-calculator-app on Frontend Mentor](https://gillaercio.github.io/age-calculator-app-main/). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a decent understanding of HTML, CSS and JavaScript.**
+### Screenshot
 
-## The challenge
+These are my screenshots showing how the project turned out.
 
-Your challenge is to build out this age calculator app and get it looking as close to the design as possible.
+- Mobile design:
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+![design](./assets/images/screenshot-mobile-design.png)
 
-Your users should be able to:
+- Desktop design:
 
-- View an age in years, months, and days after submitting a valid date through the form
-- Receive validation errors if:
-  - Any field is empty when the form is submitted
-  - The day number is not between 1-31
-  - The month number is not between 1-12
-  - The date is in the future
-  - The date is invalid e.g. 31/04/1991 (there are 30 days in April)
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
-- **Bonus**: See the age numbers animate to their final number when the form is submitted
+![design](./assets/images/screenshot-desktop-design.png)
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- Active state:
 
-## Where to find everything
+![design](./assets/images/active-states.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+- Error whole form:
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+![design](./assets/images/desktop-error-whole-form.png)
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Error invalid form:
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+![design](./assets/images/desktop-error-invalid.png)
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Error empty form:
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+![design](./assets/images/desktop-error-empty.png)
 
-## Building your project
+### Links
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- Solution URL: [My Solution](https://github.com/gillaercio/expenses-chart-component-main)
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+## My process
 
-## Deploying your project
+### Built with
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- JavaScript
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### What I learned
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+I took advantage of this project to practice using **BEM** with HTML, **Pseudo-elements** and **Reset CSS** with **CSS** and **Events and validations** with **JavaScript**:
 
-## Create a custom `README.md`
+BEM (Block Element Modifier)
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```html
+  <div class="calculate-divider">
+    <hr class="calculate-divider__line">
+    <button type="submit" class="calculate-divider__button" id="calculate-button">
+      <img src="assets/images/icon-arrow.svg" alt="Arrow icon">
+    </button>
+  </div>
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Pseudo-element
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+```css
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
 
-## Submitting your solution
+Events and validations
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+```js
+function calculateAge(event) {
+  event.preventDefault()
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+  const dayField = document.querySelector('.date-input--day .date-input__field');
+  const monthField = document.querySelector('.date-input--month .date-input__field');
+  const yearField = document.querySelector('.date-input--year .date-input__field');
+  
+  const inputs = [dayField, monthField, yearField];
+  const labels = document.querySelectorAll('.date-input__label');
+  const errorMessages = document.querySelectorAll('.error-message');
+  
+  let hasError = false;
+  
+  inputs.forEach((input, index) => {
+      input.classList.remove("input-error");
+      labels[index].classList.remove("label-error");
+      errorMessages[index].textContent = "";
+      errorMessages[index].classList.remove("visible");
+  });
 
-## Sharing your solution
+  inputs.forEach((input, index) => {
+    if(input.value.trim() === "") {
+      errorMessages[index].textContent = "This field is required";
+      errorMessages[index].classList.add("visible");
+      input.classList.add("input-error");
+      labels[index].classList.add("label-error");
+      hasError = true;
+    }
+  });
 
-There are multiple places you can share your solution:
+  if (hasError) return;
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+  // ...
+```
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+### Continued development
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+I would like to improve the use of the **HTML**, **CSS** and **JavaScript**.
 
-## Got feedback for us?
+## Author
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi@frontendmentor.io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@gillaercio](https://www.frontendmentor.io/profile/gillaercio)
+- Github - [My Github](https://github.com/gillaercio)
+- LinkedIn - [My LinkedIn](https://www.linkedin.com/in/gildman-la%C3%A9rcio/)
